@@ -14,18 +14,19 @@ data}
 "value"}
 }
 \value{
-a tidy dataframe with the zillow data
+a tidy data.table with the zillow data
 }
 \description{
-Tidy zillow time series research data
+Tidy zillow time series research data using data.table
 }
 \details{
 see \url{http://www.zillow.com/research/data/}
 }
 \examples{
 ##state level data
-library(readr)
-zillow.state <- read_csv("http://files.zillowstatic.com/research/public/State/State_Zhvi_AllHomes.csv")
+library(data.table)
+url <- "http://files.zillowstatic.com/research/public/State/State_Zhvi_AllHomes.csv"
+zillow.state <- fread(url)
 zillow.state <- tidyZillow(zillow.state, series.name = "ZillowState")
 head(zillow.state)
 }
